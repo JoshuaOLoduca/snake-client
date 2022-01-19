@@ -1,5 +1,6 @@
 const NAME = 'bug';
-const IP = '192.168.86.43';
+// const IP = '192.168.86.43';
+const IP = '165.227.47.243';
 const PORT = 50541;
 const CONTROLS = {
   w: 'up',

@@ -14,10 +14,9 @@ const handleUserInput = function (key, conn) {
     if (msg.includes(',')) {
       msg = msg.split(',')
       let secondHalf = msg[1]
-      msg = msg[0];
+      msg = msg[0] + ',';
 
-      console.log(msg)
-      setTimeout(() => conn.write('Say: ' + secondHalf), 2000);
+      setTimeout(() => conn.write(`Say: ${secondHalf}`), 2000);
     }
     conn.write('Say: ' + msg);
   }
