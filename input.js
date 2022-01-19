@@ -11,12 +11,17 @@ const handleUserInput = function (key, conn) {
 
   if (MESSAGES[key.toLowerCase()] !== undefined) {
     let msg = MESSAGES[key];
+    let delay = 2000;
     if (msg.includes(',')) {
       msg = msg.split(',')
-      let secondHalf = msg[1]
+      let restOfMessage = msg.slice(1);
       msg = msg[0] + ',';
 
-      setTimeout(() => conn.write(`Say: ${secondHalf}`), 2000);
+      for(const message of restOfMessage) {
+        setTimeout(() => conn.write(`Say: ${message}`), delay);
+        delay += delay;
+      }
+
     }
     conn.write('Say: ' + msg);
   }
