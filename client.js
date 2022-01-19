@@ -2,12 +2,14 @@
 // Template START
 ///////////////////////////////
 const net = require("net");
+const { IP, PORT, NAME } = require("./constants");
+
 
 // establishes a connection with the game server
-const connect = function (name, host, port) {
+const connect = function () {
   const conn = net.createConnection({
-    host: host, // IP address here,
-    port: port// PORT number here,
+    host: IP, // IP address here,
+    port: PORT// PORT number here,
   });
 
   // On connection complete, let use know its connected
@@ -15,7 +17,7 @@ const connect = function (name, host, port) {
     console.log('Successfully connected to game server')
 
     // set name
-    conn.write('Name: ' + name);
+    conn.write('Name: ' + NAME);
   });
 
   // interpret incoming data as text

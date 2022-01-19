@@ -1,5 +1,5 @@
 const connect = require('./client');
-const conn = connect('bug', '192.168.86.43', 50541);
+const conn = connect();
 const setupInput = require('./input')
 
 conn.on('data', data => console.log(data))
